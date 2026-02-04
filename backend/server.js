@@ -35,7 +35,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Helper to send email to info@availablenursestaffing.com
+// Helper to send email to availablenursestaffing@outlook.com
 async function sendToInfoEmail(subject, text) {
   if (!process.env.SMTP_USER) {
     console.log('SMTP not configured, skipping email send.');
@@ -44,7 +44,7 @@ async function sendToInfoEmail(subject, text) {
 
   await transporter.sendMail({
     from: `"Available Nurse Staffing" <${process.env.SMTP_USER}>`,
-    to: 'info@availablenursestaffing.com',
+    to: 'availablenursestaffing@outlook.com',
     subject,
     text
   });
