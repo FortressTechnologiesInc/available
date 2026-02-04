@@ -6,6 +6,10 @@ const cors = require('cors');
 const nodemailer = require('nodemailer');
 const path = require('path');
 
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
+
+
 const Application = require('./models/Application');
 
 const app = express();
