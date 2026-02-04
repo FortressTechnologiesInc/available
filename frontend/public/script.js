@@ -59,34 +59,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const applyForm = document.getElementById('applyForm');
   const applyStatus = document.getElementById('applyStatus');
 
-  if (applyForm) {
-    applyForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      applyStatus.textContent = '';
-      applyStatus.className = 'form-status';
+ if (applyForm) {
+  applyForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    applyStatus.textContent = '';
+    applyStatus.className = 'form-status';
 
-      const formData = new FormData(applyForm);
-      const payload = Object.fromEntries(formData.entries());
+    const formData = new FormData(applyForm);
 
-      try {
-        const res = await fetch('/api/apply', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
+    try {
+      const res = await fetch('/api/apply', {
+        method: 'POST',
+        body: formData
+      });
 
-        const data = await res.json();
-        if (data.success) {
-          applyStatus.textContent = 'Your application has been submitted. Thank you.';
-          applyStatus.classList.add('success');
-          applyForm.reset();
-        } else {
-          throw new Error(data.error || 'Unknown error');
-        }
-      } catch (err) {
-        applyStatus.textContent = 'Something went wrong. Please try again later.';
-        applyStatus.classList.add('error');
+      const data = await res.json();
+      if (data.success) {
+        applyStatus.textContent = 'Your application has been submitted. Thank you.';
+        applyStatus.classList.add('success');
+        applyForm.reset();
+      } else {
+        throw new Error(data.error || 'Unknown error');
       }
-    });
-  }
+    } catch (err) {
+      applyStatus.textContent = 'Something went wrong. Please try again later.';
+      applyStatus.classList.add('error');
+    }
+  });
+}
 });
