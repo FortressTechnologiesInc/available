@@ -77,9 +77,10 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // Apply form endpoint
-app.post('/api/apply', async (req, res) => {
+app.post('/api/apply', upload.single('resume'), async (req, res) => {
   try {
     const { fullName, email, phone, position, message } = req.body;
+    const resumeFile = req.file; // uploaded file metadata
 
     const entry = await Application.create({
       fullName,
@@ -92,7 +93,15 @@ app.post('/api/apply', async (req, res) => {
 
     await sendToInfoEmail(
       'New Application - Available Nurse Staffing',
-      `Name: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nPosition: ${position}\n\nMessage:\n${message}`
+      `Name: ${fullName}
+Email: ${email}
+Phone: ${phone}
+Position: ${position}
+
+Message:
+${message}
+
+Resume file stored at: ${resumeFile?.path}`
     );
 
     res.status(201).json({ success: true, data: entry });
