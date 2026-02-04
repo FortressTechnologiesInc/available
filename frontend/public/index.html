@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Available Nurse Staffing Inc.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Available Nurse Staffing Inc.</h1>
+    <p class="tagline">Toronto-based healthcare staffing services</p>
+  </header>
+
+  <nav class="tab-nav">
+    <button class="tab-button active" data-tab="about">About Us</button>
+    <button class="tab-button" data-tab="careers">Careers</button>
+    <button class="tab-button" data-tab="contact">Contact Us</button>
+    <button class="tab-button" data-tab="apply">Apply Here</button>
+  </nav>
+
+  <main class="tab-container">
+    <section id="about" class="tab-content active">
+      <h2>About Us</h2>
+      <p>
+        Available Nurse Staffing Inc. connects qualified nurses and healthcare professionals
+        with leading facilities across Toronto and the GTA. We focus on reliability,
+        professionalism, and compassionate care.
+      </p>
+      <p>
+        Our team understands the unique demands of healthcare environments and works closely
+        with both clients and staff to ensure the right fit every time.
+      </p>
+    </section>
+
+    <section id="careers" class="tab-content">
+      <h2>Careers</h2>
+      <p>
+        We are always looking for dedicated:
+      </p>
+      <ul>
+        <li>Registered Nurses (RNs)</li>
+        <li>Registered Practical Nurses (RPNs)</li>
+        <li>Personal Support Workers (PSWs)</li>
+        <li>Other allied healthcare professionals</li>
+      </ul>
+      <p>
+        Flexible shifts, competitive compensation, and placements across hospitals,
+        long-term care homes, and community settings in Toronto and the GTA.
+      </p>
+      <p>
+        Use the <strong>Apply Here</strong> tab to submit your application.
+      </p>
+    </section>
+
+    <section id="contact" class="tab-content">
+      <h2>Contact Us</h2>
+      <form id="contactForm" class="form-card">
+        <label>
+          Full Name
+          <input type="text" name="fullName" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Phone
+          <input type="tel" name="phone" required />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button type="submit">Send Message</button>
+        <p class="form-status" id="contactStatus"></p>
+      </form>
+      <p class="direct-email">
+        Or email us directly at:
+        <a href="mailto:info@availablenursestaffing.com">info@availablenursestaffing.com</a>
+      </p>
+    </section>
+
+    <section id="apply" class="tab-content">
+      <h2>Apply Here</h2>
+      <form id="applyForm" class="form-card">
+        <label>
+          Full Name
+          <input type="text" name="fullName" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Phone
+          <input type="tel" name="phone" required />
+        </label>
+        <label>
+          Position Applying For
+          <input type="text" name="position" placeholder="e.g., RN, RPN, PSW" required />
+        </label>
+        <label>
+          Message / Experience Summary
+          <textarea name="message" rows="4"></textarea>
+        </label>
+        <button type="submit">Submit Application</button>
+        <p class="form-status" id="applyStatus"></p>
+      </form>
+      <p class="direct-email">
+        You can also send your resume to:
+        <a href="mailto:info@availablenursestaffing.com">info@availablenursestaffing.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Available Nurse Staffing Inc. Toronto, ON</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
